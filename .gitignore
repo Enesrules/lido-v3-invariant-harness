@@ -1,0 +1,8 @@
+# local state and secrets
+state.json
+*.tgz
+*.tar.gz
+node_modules/
+.env
+credentials*.json
+session*.json

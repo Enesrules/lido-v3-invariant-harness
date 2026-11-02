@@ -1,0 +1,5136 @@
+{
+ "IAccessControl": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "@openzeppelin/contracts-v5.2/access/IAccessControl.sol"
+ },
+ "IAccessControlEnumerable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "uint256",
+      "name": "index",
+      "type": "uint256"
+     }
+    ],
+    "name": "getRoleMember",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMemberCount",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "@openzeppelin/contracts-v5.2/access/extensions/IAccessControlEnumerable.sol"
+ },
+ "IERC165": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "@openzeppelin/contracts-v5.2/utils/introspection/IERC165.sol"
+ },
+ "EnumerableSet": {
+  "abi": [],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea264697066735822122015d6af4510e5b96983ed7e37ac7ce8b11edacec21783e4de1c670ae755912ef864736f6c63430008190033",
+  "file": "@openzeppelin/contracts-v5.2/utils/structs/EnumerableSet.sol"
+ },
+ "TinyProxy": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_impl",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+   },
+   {
+    "stateMutability": "payable",
+    "type": "fallback"
+   },
+   {
+    "stateMutability": "payable",
+    "type": "receive"
+   }
+  ],
+  "bytecode": "0x608034607b57601f61011238819003918201601f19168301916001600160401b03831184841017607f57808492602094604052833981010312607b57516001600160a01b0381168103607b577f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc55604051607e90816100948239f35b5f80fd5b634e487b7160e01b5f52604160045260245ffdfe608060405236156046575f807f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc54368280378136915af43d5f803e156042573d5ff35b3d5ffd5b00fea2646970667358221220ee921251c70244eff5ddc46c7875838d13e6b34f81e6de6c340085dfb50430e764736f6c63430008190033",
+  "file": "TinyProxy.sol"
+ },
+ "PausableUntilWithRoles": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PauseUntilMustBeInFuture",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PausedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ResumedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ZeroPauseDuration",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "Paused",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [],
+    "name": "Resumed",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PAUSE_INFINITELY",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PAUSE_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "RESUME_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "getResumeSinceTimestamp",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "uint256",
+      "name": "index",
+      "type": "uint256"
+     }
+    ],
+    "name": "getRoleMember",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMemberCount",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMembers",
+    "outputs": [
+     {
+      "internalType": "address[]",
+      "name": "",
+      "type": "address[]"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseFor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_pauseUntilInclusive",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseUntil",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "resume",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/0.8.25/utils/PausableUntilWithRoles.sol"
+ },
+ "IPredepositGuarantee": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "contract IStakingVault",
+      "name": "_vault",
+      "type": "address"
+     }
+    ],
+    "name": "pendingActivations",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness",
+      "name": "_witness",
+      "type": "tuple"
+     },
+     {
+      "internalType": "contract IStakingVault",
+      "name": "_stakingVault",
+      "type": "address"
+     }
+    ],
+    "name": "proveUnknownValidator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkey",
+      "type": "bytes"
+     }
+    ],
+    "name": "validatorStatus",
+    "outputs": [
+     {
+      "components": [
+       {
+        "internalType": "enum IPredepositGuarantee.ValidatorStage",
+        "name": "stage",
+        "type": "uint8"
+       },
+       {
+        "internalType": "contract IStakingVault",
+        "name": "stakingVault",
+        "type": "address"
+       },
+       {
+        "internalType": "address",
+        "name": "nodeOperator",
+        "type": "address"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorStatus",
+      "name": "",
+      "type": "tuple"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/0.8.25/vaults/interfaces/IPredepositGuarantee.sol"
+ },
+ "IStakingVault": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "DEPOSIT_CONTRACT",
+    "outputs": [
+     {
+      "internalType": "contract IDepositContract",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "availableBalance",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "beaconChainDepositsPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_keysCount",
+      "type": "uint256"
+     }
+    ],
+    "name": "calculateValidatorWithdrawalFee",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_token",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "collectERC20",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit",
+      "name": "_deposit",
+      "type": "tuple"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_additionalAmount",
+      "type": "uint256"
+     }
+    ],
+    "name": "depositFromStaged",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit",
+      "name": "_deposits",
+      "type": "tuple"
+     }
+    ],
+    "name": "depositToBeaconChain",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "depositor",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     },
+     {
+      "internalType": "address",
+      "name": "_refundRecipient",
+      "type": "address"
+     }
+    ],
+    "name": "ejectValidators",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "fund",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "getInitializedVersion",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_owner",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "nodeOperator",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "ossify",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "pauseBeaconChainDeposits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     }
+    ],
+    "name": "requestValidatorExit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "resumeBeaconChainDeposits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     }
+    ],
+    "name": "setDepositor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "stage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "stagedBalance",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_newOwner",
+      "type": "address"
+     }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     },
+     {
+      "internalType": "uint64[]",
+      "name": "_amountsInGwei",
+      "type": "uint64[]"
+     },
+     {
+      "internalType": "address",
+      "name": "_refundRecipient",
+      "type": "address"
+     }
+    ],
+    "name": "triggerValidatorWithdrawals",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "unstage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "version",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "withdrawalCredentials",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/0.8.25/vaults/interfaces/IStakingVault.sol"
+ },
+ "CLProofVerifier": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "IndexOutOfRange",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSlot",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "RootNotFound",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "BEACON_ROOTS",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_FIRST_VALIDATOR_CURR",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_FIRST_VALIDATOR_PREV",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_PUBKEY_WC_PARENT",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_STATE_ROOT",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PIVOT_SLOT",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/0.8.25/vaults/predeposit_guarantee/CLProofVerifier.sol"
+ },
+ "MeIfNobodyElse": {
+  "abi": [],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea2646970667358221220c46873bbe7f4b08a69afc668b02927c64cde1f982b6630947988ff316420844b64736f6c63430008190033",
+  "file": "contracts/0.8.25/vaults/predeposit_guarantee/MeIfNobodyElse.sol"
+ },
+ "PredepositGuarantee": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "_genesisForkVersion",
+      "type": "bytes4"
+     },
+     {
+      "internalType": "GIndex",
+      "name": "_gIFirstValidator",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "GIndex",
+      "name": "_gIFirstValidatorAfterChange",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "uint64",
+      "name": "_pivotSlot",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+   },
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ArrayLengthsNotMatch",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "CompensateFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "EmptyDeposits",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "IndexOutOfRange",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InputHasInfinityPoints",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "enum BLS12_381.Component",
+      "name": "component",
+      "type": "uint8"
+     }
+    ],
+    "name": "InvalidCompressedComponent",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "enum BLS12_381.Component",
+      "name": "component",
+      "type": "uint8"
+     }
+    ],
+    "name": "InvalidCompressedComponentSignBit",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidDepositAmount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidDepositYLength",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidPubkeyLength",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSignature",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSignatureLength",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSlot",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "InvalidTopUpAmount",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "enum IPredepositGuarantee.ValidatorStage",
+      "name": "stage",
+      "type": "uint8"
+     }
+    ],
+    "name": "InvalidValidatorStage",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "locked",
+      "type": "uint256"
+     }
+    ],
+    "name": "LockedIsNotZero",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotDepositor",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "unlocked",
+      "type": "uint256"
+     },
+     {
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "NotEnoughUnlocked",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotGuarantor",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotStakingVaultOwner",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NothingToRefund",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PauseUntilMustBeInFuture",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PausedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "uint256",
+      "name": "depositAmount",
+      "type": "uint256"
+     }
+    ],
+    "name": "PredepositAmountInvalid",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "RefundFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ResumedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "RootNotFound",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "SameDepositor",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "SameGuarantor",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "enum IPredepositGuarantee.ValidatorStage",
+      "name": "stage",
+      "type": "uint8"
+     }
+    ],
+    "name": "ValidatorNotActivated",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     }
+    ],
+    "name": "ValidatorNotEligibleForActivation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "enum IPredepositGuarantee.ValidatorStage",
+      "name": "stage",
+      "type": "uint8"
+     }
+    ],
+    "name": "ValidatorNotNew",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "enum IPredepositGuarantee.ValidatorStage",
+      "name": "stage",
+      "type": "uint8"
+     }
+    ],
+    "name": "ValidatorNotPreDeposited",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "enum IPredepositGuarantee.ValidatorStage",
+      "name": "stage",
+      "type": "uint8"
+     }
+    ],
+    "name": "ValidatorNotProven",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "value",
+      "type": "uint256"
+     }
+    ],
+    "name": "ValueNotMultipleOfPredepositAmount",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint8",
+      "name": "version",
+      "type": "uint8"
+     }
+    ],
+    "name": "WithdrawalCredentialsInvalidVersion",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "WithdrawalCredentialsMatch",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "WithdrawalCredentialsMisformed",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "stakingVault",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "withdrawalCredentialsAddress",
+      "type": "address"
+     }
+    ],
+    "name": "WithdrawalCredentialsMismatch",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "WithdrawalFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "string",
+      "name": "argument",
+      "type": "string"
+     }
+    ],
+    "name": "ZeroArgument",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ZeroPauseDuration",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint128",
+      "name": "total",
+      "type": "uint128"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint128",
+      "name": "locked",
+      "type": "uint128"
+     }
+    ],
+    "name": "BalanceLocked",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "to",
+      "type": "address"
+     }
+    ],
+    "name": "BalanceRefunded",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "BalanceToppedUp",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint128",
+      "name": "total",
+      "type": "uint128"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint128",
+      "name": "locked",
+      "type": "uint128"
+     }
+    ],
+    "name": "BalanceUnlocked",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "recipient",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "BalanceWithdrawn",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "newDepositor",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "prevDepositor",
+      "type": "address"
+     }
+    ],
+    "name": "DepositorSet",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "guarantor",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "GuarantorRefundAdded",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "guarantor",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "recipient",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "GuarantorRefundClaimed",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "newGuarantor",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "prevGuarantor",
+      "type": "address"
+     }
+    ],
+    "name": "GuarantorSet",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "Paused",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [],
+    "name": "Resumed",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "stakingVault",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "bytes32",
+      "name": "withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "ValidatorActivated",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "stakingVault",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "guaranteeTotal",
+      "type": "uint256"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "guaranteeLocked",
+      "type": "uint256"
+     }
+    ],
+    "name": "ValidatorCompensated",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "stakingVault",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "bytes32",
+      "name": "withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "ValidatorPreDeposited",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes",
+      "name": "validatorPubkey",
+      "type": "bytes"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "nodeOperator",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "stakingVault",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "bytes32",
+      "name": "withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "ValidatorProven",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "ACTIVATION_DEPOSIT_AMOUNT",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "BEACON_ROOTS",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "DEPOSIT_DOMAIN",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_FIRST_VALIDATOR_CURR",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_FIRST_VALIDATOR_PREV",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_PUBKEY_WC_PARENT",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "GI_STATE_ROOT",
+    "outputs": [
+     {
+      "internalType": "GIndex",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "MAX_SUPPORTED_WC_VERSION",
+    "outputs": [
+     {
+      "internalType": "uint8",
+      "name": "",
+      "type": "uint8"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "MAX_TOPUP_AMOUNT",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "MIN_SUPPORTED_WC_VERSION",
+    "outputs": [
+     {
+      "internalType": "uint8",
+      "name": "",
+      "type": "uint8"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PAUSE_INFINITELY",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PAUSE_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PIVOT_SLOT",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "PREDEPOSIT_AMOUNT",
+    "outputs": [
+     {
+      "internalType": "uint128",
+      "name": "",
+      "type": "uint128"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "RESUME_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkey",
+      "type": "bytes"
+     }
+    ],
+    "name": "activateValidator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     }
+    ],
+    "name": "claimGuarantorRefund",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "claimedEther",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_guarantor",
+      "type": "address"
+     }
+    ],
+    "name": "claimableRefund",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "getResumeSinceTimestamp",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "uint256",
+      "name": "index",
+      "type": "uint256"
+     }
+    ],
+    "name": "getRoleMember",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMemberCount",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMembers",
+    "outputs": [
+     {
+      "internalType": "address[]",
+      "name": "",
+      "type": "address[]"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_defaultAdmin",
+      "type": "address"
+     }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     }
+    ],
+    "name": "nodeOperatorBalance",
+    "outputs": [
+     {
+      "components": [
+       {
+        "internalType": "uint128",
+        "name": "total",
+        "type": "uint128"
+       },
+       {
+        "internalType": "uint128",
+        "name": "locked",
+        "type": "uint128"
+       }
+      ],
+      "internalType": "struct PredepositGuarantee.NodeOperatorBalance",
+      "name": "",
+      "type": "tuple"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     }
+    ],
+    "name": "nodeOperatorDepositor",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     }
+    ],
+    "name": "nodeOperatorGuarantor",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseFor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_pauseUntilInclusive",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseUntil",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "contract IStakingVault",
+      "name": "_vault",
+      "type": "address"
+     }
+    ],
+    "name": "pendingActivations",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "contract IStakingVault",
+      "name": "_stakingVault",
+      "type": "address"
+     },
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit[]",
+      "name": "_deposits",
+      "type": "tuple[]"
+     },
+     {
+      "components": [
+       {
+        "components": [
+         {
+          "internalType": "bytes32",
+          "name": "a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "b",
+          "type": "bytes32"
+         }
+        ],
+        "internalType": "struct BLS12_381.Fp",
+        "name": "pubkeyY",
+        "type": "tuple"
+       },
+       {
+        "components": [
+         {
+          "internalType": "bytes32",
+          "name": "c0_a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c0_b",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c1_a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c1_b",
+          "type": "bytes32"
+         }
+        ],
+        "internalType": "struct BLS12_381.Fp2",
+        "name": "signatureY",
+        "type": "tuple"
+       }
+      ],
+      "internalType": "struct BLS12_381.DepositY[]",
+      "name": "_depositsY",
+      "type": "tuple[]"
+     }
+    ],
+    "name": "predeposit",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness",
+      "name": "_witness",
+      "type": "tuple"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "_invalidWithdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "proveInvalidValidatorWC",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness",
+      "name": "_witness",
+      "type": "tuple"
+     },
+     {
+      "internalType": "contract IStakingVault",
+      "name": "_stakingVault",
+      "type": "address"
+     }
+    ],
+    "name": "proveUnknownValidator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness[]",
+      "name": "_witnesses",
+      "type": "tuple[]"
+     },
+     {
+      "internalType": "uint256[]",
+      "name": "_amounts",
+      "type": "uint256[]"
+     }
+    ],
+    "name": "proveWCActivateAndTopUpValidators",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness",
+      "name": "_witness",
+      "type": "tuple"
+     }
+    ],
+    "name": "proveWCAndActivate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "resume",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_newDepositor",
+      "type": "address"
+     }
+    ],
+    "name": "setNodeOperatorDepositor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_newGuarantor",
+      "type": "address"
+     }
+    ],
+    "name": "setNodeOperatorGuarantor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       }
+      ],
+      "internalType": "struct PredepositGuarantee.ValidatorTopUp[]",
+      "name": "_topUps",
+      "type": "tuple[]"
+     }
+    ],
+    "name": "topUpExistingValidators",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     }
+    ],
+    "name": "topUpNodeOperatorBalance",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     }
+    ],
+    "name": "unlockedBalance",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "unlocked",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+       },
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "validatorIndex",
+        "type": "uint256"
+       },
+       {
+        "internalType": "uint64",
+        "name": "childBlockTimestamp",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "slot",
+        "type": "uint64"
+       },
+       {
+        "internalType": "uint64",
+        "name": "proposerIndex",
+        "type": "uint64"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorWitness",
+      "name": "_witness",
+      "type": "tuple"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "_withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "validatePubKeyWCProof",
+    "outputs": [],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_validatorPubkey",
+      "type": "bytes"
+     }
+    ],
+    "name": "validatorStatus",
+    "outputs": [
+     {
+      "components": [
+       {
+        "internalType": "enum IPredepositGuarantee.ValidatorStage",
+        "name": "stage",
+        "type": "uint8"
+       },
+       {
+        "internalType": "contract IStakingVault",
+        "name": "stakingVault",
+        "type": "address"
+       },
+       {
+        "internalType": "address",
+        "name": "nodeOperator",
+        "type": "address"
+       }
+      ],
+      "internalType": "struct IPredepositGuarantee.ValidatorStatus",
+      "name": "",
+      "type": "tuple"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit",
+      "name": "_deposit",
+      "type": "tuple"
+     },
+     {
+      "components": [
+       {
+        "components": [
+         {
+          "internalType": "bytes32",
+          "name": "a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "b",
+          "type": "bytes32"
+         }
+        ],
+        "internalType": "struct BLS12_381.Fp",
+        "name": "pubkeyY",
+        "type": "tuple"
+       },
+       {
+        "components": [
+         {
+          "internalType": "bytes32",
+          "name": "c0_a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c0_b",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c1_a",
+          "type": "bytes32"
+         },
+         {
+          "internalType": "bytes32",
+          "name": "c1_b",
+          "type": "bytes32"
+         }
+        ],
+        "internalType": "struct BLS12_381.Fp2",
+        "name": "signatureY",
+        "type": "tuple"
+       }
+      ],
+      "internalType": "struct BLS12_381.DepositY",
+      "name": "_depositsY",
+      "type": "tuple"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "_withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "verifyDepositMessage",
+    "outputs": [],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_amount",
+      "type": "uint256"
+     },
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     }
+    ],
+    "name": "withdrawNodeOperatorBalance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x6101403461022b576001600160401b03601f614f8a38819003918201601f1916840191908383118584101761022f57816080928692604095865283398101031261022b5782516001600160e01b031981169081900361022b57602090818501519460608482015191015190858216820361022b5761040260805261010096610b03885260a05260c05260e0525f525f8152805f838160025afa813d14161561021e575f51811c600360f81b176101209081527ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00805491949060ff83861c1661020d5790839181808516036101cb575b505050507fe8b012900cb200ee5dfc3b895a32791b67d12891b09f117814f167a237783a02805442106101ba57907f32fb7c9891bc4f963c7de9f1186d2a7755c7d6e9f4604dabe1d8bb3027c2f49e915f198091558351908152a15190614d4692836102448439608051838181612edc0152614122015260a0518381816118fa01526140b9015260c05183818161195701526142c7015260e051838181610b8d015261408d015251828181611e7701526141490152518181816103a401528181610ed801526126220152f35b8251630286f07360e31b8152600490fd5b6001600160401b0319909316811790925583519182527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d291a15f8181806100ee565b845163f92ee8a960e01b8152600490fd5b63dd5cab3e5f526004601cfd5b5f80fd5b634e487b7160e01b5f52604160045260245ffdfe6080806040526004361015610012575f80fd5b5f3560e01c90816301ffc9a71461349d575080630410833914613352578063046f7da21461327a5780630f1e2ea214612eff578063142e839814612ec557806315c21d4e14612ea2578063170ca9f314612e7657806317c388fc146122395780631ddfdd2b1461212d578063248a9ca3146120f45780632b92b26114611f515780632de03aa114611f175780632f2ff15d14611e9a5780632f8d514914611e605780632fe9ef5414611c9957806336568abe14611c52578063389ed26714611c1857806338b76e891461197a5780633a5e31fe14611940578063503c51131461191d578063562d7d67146118e357806356d7e8fd146118b6578063589ff76c1461188d57806358eaee79146117fb5780635a874369146117d95780635bccf2bd146114e05780635e0fac2e146114835780636ada18a714610d815780636e1e063f14610d55578063767e1dba14610cd05780637b1a83c514610cb55780638291dd6b14610bb15780638f60eab914610b6e5780639010d07c14610b1d57806391d1485414610ac85780639cf29675146108ed578063a217fddf146108d3578063a302ee38146108b8578063a3246ad314610803578063abe9cfc81461078a578063b187bd261461075f578063c1541d5c1461073c578063c4d66de81461056a578063ca15c87314610534578063cac5337e14610519578063d547741f146104d0578063d646c6081461049b578063d68f9cf3146103c7578063e1e176121461038d578063f27f59ac14610376578063f3f449c7146103145763f7db7f6a14610258575f80fd5b346103105760203660031901126103105761027161353a565b61027961391e565b610282336137d1565b5480156102fe575f610293336137d1565b555f80808084865af16102a46138ba565b50156102ec576040518181526020926001600160a01b03169033907f40b5bb6eb7ddbc6687b6d5d056015d065061101eebffb49f9585162165b3027a908590a3604051908152f35b604051633c31275160e21b8152600490fd5b60405163f76aef6560e01b8152600490fd5b5f80fd5b3461031057602036600319011261031057600435610330613b6a565b61033861391e565b801561036457610352905f199081810361035457506148f3565b005b61035f91504261387c565b6148f3565b60405163ad58bfc760e01b8152600490fd5b3461031057610352610387366135bc565b90613ff9565b34610310575f3660031901126103105760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b34610310576103d536613566565b906103de61391e565b6103e8828261370f565b80549060ff8216936005851015610487576002850361044e5761035294506001600160a01b03600884901c81169490600361042287613947565b9560ff19161784556001604051946104398661366a565b60608652606036602088013701541694613ccc565b839085610483610478604051948594633a3786c960e11b8652604060048701526044860191613747565b9160248401906135af565b0390fd5b634e487b7160e01b5f52602160045260245ffd5b346103105760203660031901126103105760206104be6104b961353a565b6142fe565b6040516001600160a01b039091168152f35b34610310576040366003190112610310576103526004356104ef613550565b90805f525f80516020614cb1833981519152602052610514600160405f200154613bc5565b613f9f565b34610310575f36600319011261031057602060405160018152f35b34610310576020366003190112610310576004355f525f80516020614c71833981519152602052602060405f2054604051908152f35b346103105760203660031901126103105761058361353a565b7ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a009081549060ff8260401c1615916001600160401b03811680159081610734575b600114908161072a575b159081610721575b5061070f5767ffffffffffffffff1981166001178455826106f0575b506001600160a01b0381169081156106ba5760ff845460401c16156106a85761061a906145a9565b610663575b5061062657005b68ff00000000000000001981541690557fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2602060405160018152a1005b5f80525f80516020614c718339815191526020526106a1907f615f0f9e84155bea8cc509fe18befeb1baf65611e38a6ba60964480fb29dfd44614974565b508261061f565b604051631afcd79f60e31b8152600490fd5b6040516356e4289360e01b815260206004820152600d60248201526c2fb232b330bab63a20b236b4b760991b6044820152606490fd5b68ffffffffffffffffff191668010000000000000001178355836105f2565b60405163f92ee8a960e01b8152600490fd5b905015856105d6565b303b1591506105ce565b8491506105c4565b34610310575f3660031901126103105760206040516801ae361fc1451c00008152f35b34610310575f3660031901126103105760205f80516020614cd1833981519152544210604051908152f35b34610310576020366003190112610310576004356107a6613b6a565b6107ae61391e565b4281106107f1575f198181146107e75750600181018091116107d357610352906148f3565b634e487b7160e01b5f52601160045260245ffd5b61035291506148f3565b6040516339e2ec5360e11b8152600490fd5b3461031057602080600319360112610310576004355f525f80516020614c71833981519152815260405f20604051908183825491828152019081925f52845f20905f5b868282106108a457868661085c828803836136a1565b60405192839281840190828552518091526040840192915f5b82811061088457505050500390f35b83516001600160a01b031685528695509381019392810192600101610875565b835485529093019260019283019201610846565b34610310575f3660031901126103105760206040515f198152f35b34610310575f3660031901126103105760206040515f8152f35b346103105760203660031901126103105761090661353a565b61090e61391e565b335f525f80516020614cf183398151915260205260405f2061092f33614345565b916001600160a01b03808216929091908315610a925782851694848614610a80578154908160801c80610a6857506001600160801b03821692836109ea575b505050508233145f146109e457505f905b335f527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee520160205260405f2091166001600160601b0360a01b825416179055337ff06a30ceb17de4ff95f6d3ccd03868cdcee956029534284eede487b699d0f37d5f80a4005b9061097f565b6109ff926001600160801b03191690556137d1565b610a0a82825461387c565b90556040519085337f85bf86da4d4a896fdd6251c9a9c378069dc70599594a05762774e5f9a8fce0765f80a38152847f4b5387f1af0e158cf3785ce3d4312734135240392af514bef22f05c4bb0569bc60203393a38480808061096e565b60249060405190632c5213ed60e01b82526004820152fd5b6040516347779c1560e11b8152600490fd5b6040516356e4289360e01b815260206004820152600d60248201526c2fb732bba3bab0b930b73a37b960991b6044820152606490fd5b3461031057604036600319011261031057610ae1613550565b6004355f525f80516020614cb183398151915260205260405f209060018060a01b03165f52602052602060ff60405f2054166040519015158152f35b34610310576040366003190112610310576004355f525f80516020614c718339815191526020526020610b5560243560405f206148de565b905460405160039290921b1c6001600160a01b03168152f35b34610310575f3660031901126103105760206040516001600160401b037f0000000000000000000000000000000000000000000000000000000000000000168152f35b3461031057602036600319011261031057610bca61353a565b610bd261391e565b6001600160a01b03818116908115610c7f5780610bee336142fe565b1692838314610c6d57338303610c6757505f905b335f527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee520460205260405f2091166001600160601b0360a01b825416179055337fe74066a7104bac6f7dad63e1dfd3e928372d4b01c0621a52709132ee5dbe06bc5f80a4005b90610c02565b604051634189c9bd60e01b8152600490fd5b6040516356e4289360e01b815260206004820152600d60248201526c2fb732bba232b837b9b4ba37b960991b6044820152606490fd5b34610310575f36600319011261031057602060405160028152f35b3461031057602036600319011261031057610ce961353a565b5f6020604051610cf881613633565b82815201526001600160a01b03165f9081525f80516020614cf1833981519152602052604090819020815190610d2d82613633565b546001600160801b0390602082821693848152019060801c8152835192835251166020820152f35b34610310576020366003190112610310576020610d78610d7361353a565b6137d1565b54604051908152f35b346103105760031961010036820112610310576004356001600160401b038111610310576080816004019282360301126103105760c036602319011261031057610ddd6044610dd084806136dd565b92909460248501906136dd565b919093013590603083036114715782156113f3576001600160f81b0319853560f881901c602016151590600360fe1b16600160ff1b149290921561145957602435926f0d0088f51cbff34d258dd3db21a5d66b9384808211918215611431575b5050151590151503611419576060810361140757156113f35784351660f881901c602016151590600360fe1b16600160ff1b14919091156113da5760a4358015806113d0575b1561139557506064359080821191821561136d575b50505b15159015150361135457633b9aca009182820661134257610f0992610f03610efe610ed5610ed094610ed060e435918b61474f565b6147a5565b927f00000000000000000000000000000000000000000000000000000000000000009504614aa1565b614786565b906147a5565b60405190610f168261364e565b5f82525f60208301525f60408301525f60608301525f60808301525f60a08301525f60c08301525f60e083015260405190610140820152600160f81b6101608201525f6101628201535f80516020614c91833981519152806101638301526b5357555f524f5f504f505f2b60a01b80610183840152610f986101008401614844565b91826101008501526001610120850153610121840152610141830152610fc1610100830161485d565b8252600260016020845b805185186101008701520191610ff860ff1986610fec846101208301614813565b03016101008701614876565b83520191600983146110105791602060019192610fcb565b5050506110ce9060406101008201526020610120820152604061014082015260016101a08201526f1a0111ea397fe69a4b1ba7b6434bacd76101c08201527f64774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab6101e082015261108381610100810161488e565b61109460408201610100830161488e565b6110a560808201610100830161488e565b6110b660c08201610100830161488e565b6110c083826148b9565b8261010001906080016148b9565b6101008161020081600d5afa6101003d1416156113355760106020604051946110f686613685565b61030036873780356001600160fd1b031686840152016030850137604060248185013782511580611329575b8061131d575b80611311575b6112a45760109160e0826020935160808701528381015160a0870152604081015160c0870152606081015182870152608081015161010087015260a081015161012087015260c081015161014087015201516101608501526f17f1d3a73197d7942695638c4fa9ac0f6101808501527fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb6101a08501526f114d1d6855d545a8aa7d76c8cf2e21f26101c08501527f67816aef1db507c96655b9d5caac42364e6f38ba0ecb751bad54dcd6b939c2ca6101e0850152603080820161021086013780356001600160fd1b0316610250850152016102708301376102808101608060648237610200820151159081611303575b816112f5575b816112e7575b816112dd575b50806112d0575b806112c3575b806112b6575b6112a4575f610300602092600f5afa60203d141615611297575f511561128557005b604051638baa579f60e01b8152600490fd5b634df45e2f5f526004601cfd5b60405163ea08060b60e01b8152600490fd5b506102e081015115611263565b506102c08101511561125d565b506102a081015115611257565b9050511582611250565b61026083015115915061124a565b610240830151159150611244565b61022083015115915061123e565b5060608301511561112e565b50604083015115611128565b50602083015115611122565b63c55e5e335f526004601cfd5b60405163fe9ba5cd60e01b8152600490fd5b604051630be2a62360e01b815260016004820152602490fd5b1490508061137d575b8680610e98565b505f80516020614c5183398151915260843511611376565b908082119182156113a8575b5050610e9b565b149050806113b8575b86806113a1565b505f80516020614c5183398151915260c435116113b1565b5060c43515610e83565b6040516380c12c6b60e01b815260016004820152602490fd5b634e487b7160e01b5f52603260045260245ffd5b604051634be6321b60e01b8152600490fd5b604051630be2a62360e01b81525f6004820152602490fd5b14905080611441575b848a610e3d565b505f80516020614c518339815191526044351161143a565b6040516380c12c6b60e01b81525f6004820152602490fd5b604051639ca717ed60e01b8152600490fd5b34610310576020366003190112610310576001600160a01b036114a461353a565b165f525f80516020614cf1833981519152602052602060405f20546114d76001600160801b0391828160801c9116613848565b16604051908152f35b34610310576114ee366135bc565b906114f761391e565b6115018282613ff9565b6020918282019161151b61151584836136dd565b9061370f565b9283549360ff8516600581101561048757600181036117a657506001600160a01b0394600881901c86169461154f86613947565b14611794578591600460019260ff191617815501541693845f525f80516020614cf1833981519152865260405f20958654916115d46115b46001600160801b03948561159c818316613828565b16906001600160801b03191617808b5560801c613828565b89546001600160801b031660809190911b6001600160801b031916178955565b6115dd86613799565b80545f198101919082116107d357556040516363e27fa360e11b81529082826004818a5afa9182156116ee575f92611765575b50163014806116f9575b6116a2575b5f808080670de0b6b3a7640000895af16116376138ba565b50156116905761166a6040937fd1ccec2db8fbfe5568ffc12c5e23a0a2e9dd0f35b03f4c0fdd6b48a8f122549e956136dd565b90975497818551928392833781015f8152039020968351928116835260801c90820152a4005b6040516332cf73bd60e21b8152600490fd5b843b1561031057604051633220cd0d60e21b81526801ae361fc1451c000060048201525f81602481838a5af180156116ee576116df575b5061161f565b6116e890613620565b876116d9565b6040513d5f823e3d90fd5b50604051636f9978c960e01b81528181600481895afa80156116ee575f9061172f575b6801ae361fc1451c00009150101561161a565b508181813d831161175e575b61174581836136a1565b81010312610310576801ae361fc1451c0000905161171c565b503d61173b565b611786919250833d851161178d575b61177e81836136a1565b810190613809565b9089611610565b503d611774565b6040516367ed763b60e01b8152600490fd5b6117b083856136dd565b9091610483610478604051948594631faa06f960e21b8652604060048701526044860191613747565b34610310575f366003190112610310576020604051670de0b6b3a76400008152f35b346103105761182b61180c36613566565b905f6040805161181b816135f1565b828152826020820152015261370f565b604051611837816135f1565b815460ff8116916005831015610487576060936001928483526040848060a01b038095819482602088019560081c168552015416930192835261187d60405180966135af565b5116602084015251166040820152f35b34610310575f3660031901126103105760205f80516020614cd183398151915254604051908152f35b34610310575f366003190112610310576020604051720f3df6d732807ef1319fb7b8bb8522d0beac028152f35b34610310575f3660031901126103105760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b34610310575f366003190112610310576020604051686d499ec6c6338000008152f35b34610310575f3660031901126103105760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b3461031057600319604036820112610310576004356001600160401b0381116103105760c081600401928236030112610310576119b5613550565b916119be61391e565b604051638da5cb5b60e01b81526001600160a01b0384811694909260209283816004818a5afa9081156116ee575f91611bfb575b508433911603611be957611a0681806138e9565b600110156113f3578301357f2c84ba62dc4e7011c24fb0878e3ef2245a9e2cf2cacbbaf2978a4efa4703728314611bb657611a4082613947565b93611a4b8583613ff9565b60405162478b6160e31b81529584876004818b5afa9687156116ee575f97611b94575b5060240192611a8061151585856136dd565b90815460ff811660058110156104875780611b6157506001600160a81b03191660089190911b610100600160a81b03161760031781557fe36e4aa767f42233ecd45adf149213f8618917483f91509eb46a0dbd8bf16ffc9493611b459390929091600101971696876001600160601b0360a01b8254161790558787611b0584846136dd565b9081604051928392833781015f81520390207f6316434673b57561543309d5ba7f3eef64ead29268b63604b93012826d52f8a7876040518b8152a46136dd565b9081604051928392833781015f815203902092604051908152a4005b611b6b87876136dd565b9091610483610478604051948594630355fcd160e01b8652604060048701526044860191613747565b6024919750611baf90863d881161178d5761177e81836136a1565b9690611a6e565b82611bc86104839260248801906136dd565b9290604051938493630234fc9160e31b855260048501526024840191613747565b604051634636dbfb60e01b8152600490fd5b611c129150843d861161178d5761177e81836136a1565b876119f2565b34610310575f3660031901126103105760206040517f8d0e4ae4847b49935b55c99f9c3ce025c87e7c4604c35b7ae56929bd32fa5a788152f35b3461031057604036600319011261031057611c6b613550565b336001600160a01b03821603611c875761035290600435613f9f565b60405163334bd91960e11b8152600490fd5b3461031057606036600319011261031057611cb261353a565b6044356001600160a01b0381811692602435919084840361031057611cd681614345565b8233911603611e4e57611ce761391e565b8215611e1e578415611deb57670de0b6b3a76400008306611dd2571691825f525f80516020614cf183398151915260205260405f2080546001600160801b0380821681611d378460801c83613848565b16868110611db457505f948594859484611d568a958897871690613848565b16906001600160801b0319161790555af1611d6f6138ba565b5015611da25760207f50630162af2fe1b3638257703351230fbe331ec0b7368aba0eb78f2dabd03c0c91604051908152a3005b6040516327fcd9d160e01b8152600490fd5b604490876040519163624253e360e11b835260048301526024820152fd5b6040516327ecee0160e21b815260048101849052602490fd5b6040516356e4289360e01b815260206004820152600a60248201526917dc9958da5c1a595b9d60b21b6044820152606490fd5b6040516356e4289360e01b815260206004820152600760248201526617d85b5bdd5b9d60ca1b6044820152606490fd5b604051633d65f36360e11b8152600490fd5b34610310575f3660031901126103105760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b3461031057604036600319011261031057600435611eb6613550565b815f525f80516020614cb1833981519152602052611eda600160405f200154613bc5565b611ee48183614646565b611eea57005b5f9182525f80516020614c718339815191526020526040909120610352916001600160a01b031690614974565b34610310575f3660031901126103105760206040517fa79a6aede309e0d48bf2ef0f71355c06ad317956d4c0da2deb0dc47cc34f826c8152f35b346103105760206003198181360112610310576004356001600160401b0381116103105760c08160040192823603011261031057602490611f9061391e565b0190611f9f61151583836136dd565b9283549260ff8416600581101561048757600181036120ea57506001600160a01b039360081c841690611fd182613947565b938560018801541695611fe687878685613bf3565b6040516363e27fa360e11b8152908582600481885afa9182156116ee575f926120cb575b501630148061205f575b1561204f57906120329161035297600360ff198254161790556136dd565b916060604051946120428661366a565b8186523690860137613ccc565b5050845460ff1916600217909455005b50604051636f9978c960e01b81528481600481875afa80156116ee575f90612095575b6801ae361fc1451c000091501015612014565b508481813d83116120c4575b6120ab81836136a1565b81010312610310576801ae361fc1451c00009051612082565b503d6120a1565b6120e3919250863d881161178d5761177e81836136a1565b908961200a565b6117b082856136dd565b34610310576020366003190112610310576004355f525f80516020614cb18339815191526020526020600160405f200154604051908152f35b60203660031901126103105761214161353a565b61214961391e565b61215281614345565b6001600160a01b03903390821603611e4e576001600160801b03908134169283156122075782670de0b6b3a76400008506166121ee571690815f525f80516020614cf183398151915260205260405f20908154906121b285828416613861565b16906001600160801b0319161790556040519182527e0335ccd35b0d167194e80b08dff7b29f82690673ee793f5c9d1d157520006760203393a3005b6040516327ecee0160e21b815260048101859052602490fd5b6040516356e4289360e01b81526020600482015260096024820152686d73672e76616c756560b81b6044820152606490fd5b60603660031901126103105761224d61353a565b6001600160401b036024358181116103105761226d90369060040161350a565b918060443511610310573660236044350112156103105760443560040135116103105736602460c06044356004013502604435010111610310576122af61391e565b8115612e6457816044356004013503612e525760405162478b6160e31b81526020816004816001600160a01b0388165afa9081156116ee575f91612e33575b506001600160a01b03612300826142fe565b163303612e215734612d3b575b61231684613947565b9060018060a01b0381165f525f80516020614cf183398151915260205260405f20670de0b6b3a76400008581020485036107d35780546001600160801b036123638260801c828416613848565b1686670de0b6b3a7640000028110612d13575061239a6123ba916001600160801b0388670de0b6b3a764000002169060801c613861565b82546001600160801b031660809190911b6001600160801b031916178255565b54604080516001600160801b038316815260809290921c60208301526001600160a01b038316917fa8dcc32070fd491dd2270947859160da612e1de32f72b5baaf72916ef6a67a359190a26124176001600160a01b038616613799565b61242285825461387c565b90555f915b8483106124975785856801ae361fc1451c000090808202918204036107d3576001600160a01b0382163b1561031057604051632a6cf77b60e11b81526004810191909152905f908290602490829084906001600160a01b03165af180156116ee5761248e57005b61035290613620565b9193846005969294961b86013590607e19873603018212156103105760ff6124c4611515898501806136dd565b541660058110156104875780612d075750670de0b6b3a76400006040838901013503612cc557604435600401358610156113f357612504878301806136dd565b909161251689850160208101906136dd565b6030849294036114715781156113f357843560f881901c602016151590600360fe1b16600160ff1b0361145957602460c08c026044350101356f0d0088f51cbff34d258dd3db21a5d66b8111908115612c85575b50151590151503611419576060810361140757156113f357823560f881901c602016151590600360fe1b16600160ff1b036113da5760a460c08b02604435010135801580612c72575b15612c105750606460c08b026044350101356f0d0088f51cbff34d258dd3db21a5d66b8111908115612bcf575b505b15159015150361135457633b9aca006040868c010135066113425789610ed061261289610ed061264b958961474f565b610f03610efe633b9aca0060408b7f00000000000000000000000000000000000000000000000000000000000000009701013504614aa1565b604051916126588361364e565b5f83525f60208401525f60408401525f60608401525f60808401525f60a08401525f60c08401525f60e084015260405191610140830152600160f81b6101608301525f6101628301535f80516020614c918339815191526101638301526b5357555f524f5f504f505f2b60a01b6101838301526126d86101008301614844565b8061010084015260016101208401535f80516020614c918339815191526101218401526b5357555f524f5f504f505f2b60a01b61014184015261271e610100840161485d565b835260029060016020855b80518418610100880152019261275660ff198761274a846101208301614813565b03016101008801614876565b845201916009831461276c576020600191612729565b50505098939291906127e8909a98969a60406101008201526020610120820152604061014082015260016101a08201526f1a0111ea397fe69a4b1ba7b6434bacd76101c08201527f64774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab6101e082015261108381610100810161488e565b6101008161020081600d5afa6101003d14161561133557601060206040519461281086613685565b61030036873780356001600160fd1b0316868401520160308501376040602460c0860260443501018185013782511580612bc3575b80612bb7575b80612bab575b6112a45760109160e0826020935160808701528381015160a0870152604081015160c0870152606081015182870152608081015161010087015260a081015161012087015260c081015161014087015201516101608501526f17f1d3a73197d7942695638c4fa9ac0f6101808501527fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb6101a08501526f114d1d6855d545a8aa7d76c8cf2e21f26101c08501527f67816aef1db507c96655b9d5caac42364e6f38ba0ecb751bad54dcd6b939c2ca6101e0850152603080820161021086013780356001600160fd1b03166102508501520161027083013761028081016080606460c0850260443501018237610200820151159081612b9d575b81612b8f575b81612b81575b81612b77575b5080612b6a575b80612b5d575b80612b50575b6112a4575f610300602092600f5afa60203d141615611297575f5115611285576040516129bb816135f1565b600181526001600160a01b038881166020830152841660408201526129e5611515878501806136dd565b81519060058210156104875780546020840151610100600160a81b0360089190911b1660ff939093166001600160a81b031990911617919091178155600190604090920151910180546001600160a01b0319166001600160a01b0392831617905587163b15610310576040516344d74deb60e01b815260206004820152915f8380612aab612a89612a788b870180613889565b6080602486015260a4850191613747565b612a998b87016020810190613889565b84830360231901604486015290613747565b898501604081013560648401526060013560848301520381836001600160a01b038d165af19081156116ee57600193612aec92612b41575b508601806136dd565b9081604051928392833781015f8152039020604051858152838060a01b038916917f9af13f4cfe743dc4a017e887bd7f428604904e16ed57fcf0c563a75ae3b312566020868060a01b03881693a40191612427565b612b4a90613620565b89612ae3565b506102e08101511561298f565b506102c081015115612989565b506102a081015115612983565b905051158961297c565b610260830151159150612976565b610240830151159150612970565b61022083015115915061296a565b50606083015115612851565b5060408301511561284b565b50602083015115612845565b6f0d0088f51cbff34d258dd3db21a5d66b91501480612bef575b8c6125e0565b505f80516020614c51833981519152608460c08c0260443501013511612be9565b6f0d0088f51cbff34d258dd3db21a5d66b8111908115612c31575b506125e2565b6f0d0088f51cbff34d258dd3db21a5d66b91501480612c51575b8c612c2b565b505f80516020614c5183398151915260c460c08c0260443501013511612c4b565b5060c460c08c02604435010135156125b3565b6f0d0088f51cbff34d258dd3db21a5d66b91501480612ca5575b8d61256a565b505f80516020614c51833981519152604460c08d02813501013511612c9f565b50604086612cd5838201806136dd565b929093612cfa8251958695631939b30760e01b87528460048801526044870191613747565b9201013560248301520390fd5b611b6b838901806136dd565b604490876040519163624253e360e11b83526004830152670de0b6b3a7640000026024820152fd5b336001600160a01b03612d4d83614345565b1603611e4e576001600160801b03341615612207576001600160801b03670de0b6b3a76400008134160616612e00576001600160a01b0381165f8181525f80516020614cf18339815191526020526040902080546001600160801b03612db7348216828416613861565b16906001600160801b031916179055604051906001600160801b03341682527e0335ccd35b0d167194e80b08dff7b29f82690673ee793f5c9d1d157520006760203393a361230d565b6040516327ecee0160e21b8152346001600160801b03166004820152602490fd5b604051633cc50b4560e01b8152600490fd5b612e4c915060203d60201161178d5761177e81836136a1565b846122ee565b60405163e7c58ff360e01b8152600490fd5b6040516333bc9bb960e21b8152600490fd5b34610310576020366003190112610310576020610d786001600160a01b03612e9c61353a565b16613799565b346103105760203660031901126103105760206104be612ec061353a565b614345565b34610310575f3660031901126103105760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b34610310576040366003190112610310576001600160401b0360043581811161031057612f3090369060040161350a565b909160243590811161031057612f4a90369060040161350a565b9091612f5461391e565b8181036132685760405192612f688461366a565b6060845260603660208601375f5b828110612f7f57005b612f97612f8d828589613767565b60208101906136dd565b612fa38183949361370f565b805460ff81169160058310159384610487578315801561325b575b61323157686d499ec6c633800000612fd7878c8b613789565b351161320e5760018201546001600160a01b0390811694909290612ffc888d8c613789565b351515806131fa575b612e2157613017848660081c16613947565b966104875785878f8a8e600186146131d3575b50505050506005811015610487578c9060028103613176575050805460ff1916600317905561305a868b8a613789565b359161306a818560081c16613799565b80545f198101919082116107d357556801ae361fc1451c000083810181116107d3578c908461309d89828401878e6143a4565b91604051936130ab8561366a565b6130b636888f613a3e565b855260208501520160408301526060820152818560081c163b15610310576130fc5f916040519586928392634e7e161f60e01b8452604060048501526044840190613a98565b906024830152038183858960081c165af19182156116ee576001987fe36e4aa767f42233ecd45adf149213f8618917483f91509eb46a0dbd8bf16ffc94602094613167575b5081604051928392833781015f81520390209360405196875260081c1694a45b01612f76565b61317090613620565b8f613141565b6003919594979650600199925014806131bf575b61319a575b505050505050613161565b6131b4956131a9888d8c613789565b359360081c16613ad7565b87808781808061318f565b506131cb878c8b613789565b35151561318a565b6131ee9550906131e991898b60081c1693613767565b613bf3565b600285878f8a8e61302a565b5083613205876142fe565b16331415613005565b602461321b878c8b613789565b60405163058bd3d160e31b815290356004820152fd5b86908461048361047860405194859463ea74fbc760e01b8652604060048701526044860191613747565b505f945060048414612fbe565b6040516316edde2960e01b8152600490fd5b34610310575f36600319011261031057335f9081527f9b37064ab82713689e742bcb1777ed5bb5c4404524a39c294bf934d7bafe02df60205260409020547fa79a6aede309e0d48bf2ef0f71355c06ad317956d4c0da2deb0dc47cc34f826c9060ff1615613334575f80516020614cd18339815191528054421015613322574290557f62451d457bc659158be6e6247f56ec1df424a5c7597f71c20c2bc44e0965c8f95f80a1005b60405163b047186b60e01b8152600490fd5b6044906040519063e2517d3f60e01b82523360048301526024820152fd5b3461031057602080600319360112610310576004356001600160401b0381116103105761338390369060040161350a565b909161338d61391e565b6040519261339a8461366a565b6060845260603660208601375f5b8381106133b157005b600581811b830135603e1984360301811215610310578301908482013590686d499ec6c6338000008211613484576133ec61151584806136dd565b9060018060a01b03913383613406816001850154166142fe565b1603612e2157549060ff8216908110156104875760038103613451575061344b9260019594928a9260081c1661344561343e82613947565b94806136dd565b91613ad7565b016133a8565b61345b85806136dd565b90916104836104786040519485946367075bbb60e01b8652604060048701526044860191613747565b60405163058bd3d160e31b815260048101839052602490fd5b34610310576020366003190112610310576004359063ffffffff60e01b821680920361031057602091635a05180f60e01b81149081156134df575b5015158152f35b637965db0b60e01b8114915081156134f9575b50836134d8565b6301ffc9a760e01b149050836134f2565b9181601f84011215610310578235916001600160401b038311610310576020808501948460051b01011161031057565b600435906001600160a01b038216820361031057565b602435906001600160a01b038216820361031057565b906020600319830112610310576004356001600160401b039283821161031057806023830112156103105781600401359384116103105760248483010111610310576024019190565b9060058210156104875752565b6003199060408183011261031057600435916001600160401b038311610310578260c092030112610310576004019060243590565b606081019081106001600160401b0382111761360c57604052565b634e487b7160e01b5f52604160045260245ffd5b6001600160401b03811161360c57604052565b604081019081106001600160401b0382111761360c57604052565b61010081019081106001600160401b0382111761360c57604052565b608081019081106001600160401b0382111761360c57604052565b61030081019081106001600160401b0382111761360c57604052565b90601f801991011681019081106001600160401b0382111761360c57604052565b6001600160401b03811161360c57601f01601f191660200190565b903590601e198136030182121561031057018035906001600160401b0382116103105760200191813603831361031057565b60209082604051938492833781017ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee520381520301902090565b908060209392818452848401375f828201840152601f01601f1916010190565b91908110156113f35760051b8101359060be1981360301821215610310570190565b91908110156113f35760051b0190565b6001600160a01b03165f9081527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee52056020526040902090565b6001600160a01b03165f9081527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee52026020526040902090565b9081602091031261031057516001600160a01b03811681036103105790565b6001600160801b03908116670de0b6b3a763ffff1901919082116107d357565b6001600160801b0391821690821603919082116107d357565b9190916001600160801b03808094169116019182116107d357565b919082018092116107d357565b9035601e19823603018112156103105701602081359101916001600160401b03821161031057813603831361031057565b3d156138e4573d906138cb826136c2565b916138d960405193846136a1565b82523d5f602084013e565b606090565b903590601e198136030182121561031057018035906001600160401b03821161031057602001918160051b3603831361031057565b5f80516020614cd183398151915254421061393557565b604051630286f07360e31b8152600490fd5b60405163266bcf0560e11b815291906001600160a01b0390811690602084600481855afa9384156116ee575f94613a0a575b508316835f81901a600181108015613a00575b6139e857506affffffffffffffffffffff8160a01c166139d057508082036139b2575050565b6044925060405191633039d4b560e11b835260048301526024820152fd5b6024906040519063b0685c0560e01b82526004820152fd5b6024906040519063a4886a2b60e01b82526004820152fd5b506002811161398c565b9093506020813d602011613a36575b81613a26602093836136a1565b810103126103105751925f613979565b3d9150613a19565b929192613a4a826136c2565b91613a5860405193846136a1565b829481845281830111610310578281602093845f960137010152565b805180835260209291819084018484015e5f828201840152601f01601f1916010190565b90606080613ac4613ab28551608086526080860190613a74565b60208601518582036020870152613a74565b9360408101516040850152015191015290565b9390929194613aeb613b00918488876143a4565b9360405196613af98861366a565b3691613a3e565b85526020850152604084015260608301526001600160a01b0316803b15610310576040516344d74deb60e01b815260206004820152915f918391829084908290613b4e906024830190613a98565b03925af180156116ee57613b5f5750565b613b6890613620565b565b335f9081527fbcb1b11de498c6b52a7a7d947da69c0b177cbcc5f8e7e65a1354e8972904915c60205260409020547f8d0e4ae4847b49935b55c99f9c3ce025c87e7c4604c35b7ae56929bd32fa5a789060ff16156133345750565b805f525f80516020614cb183398151915260205260405f20335f5260205260ff60405f205416156133345750565b919260207f6316434673b57561543309d5ba7f3eef64ead29268b63604b93012826d52f8a791613c238686613ff9565b613cae60018060a01b0380921695865f525f80516020614cf18339815191528452867f5491d0b2745d551bda5eb10b55fd2bc6601ecc4fae0c56286ad419bb94925ada613ca260405f20613c7d61239a825460801c613828565b54604080516001600160801b038316815260809290921c602083015290918291820190565b0390a2838101906136dd565b9081604051928392833781015f8152039020936040519687521694a4565b9295946001600160a01b03938416949391929190613ce986613799565b9283545f1981019081116107d3575f9455604094855160209581878093019085858337613d2860308288810186888201520360108101845201826136a1565b8951918291518091835e8101838152039060025afa15613f95575f518651613d4f81613633565b6008815286810190873683378051156113f3575f82538051600110156113f357607660218201538051600210156113f35760be60228201538051600310156113f35760376023820153805192600493841015613f825760076024830153815160051015613f82575f6025830153815160061015613f82575f6026830153815160071015613f82575f89613de98d8294846027880153614387565b8c51918183925191829101835e8101838152039060025afa15613f78575f8891815193613e5960588d51809387820195518091875e810186888201527fdb56114e00fdd4c1f85c892bf35ac9a89289aaecb1ebd0a96cde606a748b5d7160388201520360388101845201826136a1565b8b51918291518091835e8101838152039060025afa15613f6e575f87613e828193835190614387565b8a51918183925191829101835e8101838152039060025afa15613f64575f5187519b613ead8d61366a565b613eb8368686613a3e565b8d52878d01526801ae361fc1451c0000888d015260608c0152883b1561031057865f91613efc82519d8e938493634e7e161f60e01b85528401526044830190613a98565b8360248301520381838c5af1998a15613f64577fe36e4aa767f42233ecd45adf149213f8618917483f91509eb46a0dbd8bf16ffc969798999a613f55575b50818751928392833781015f815203902094519586521693a4565b613f5e90613620565b5f613f3a565b86513d5f823e3d90fd5b87513d5f823e3d90fd5b88513d5f823e3d90fd5b603284634e487b7160e01b5f525260245ffd5b85513d5f823e3d90fd5b613fa982826146d0565b9182613fb457505090565b5f9182525f80516020614c718339815191526020526040909120613fe1916001600160a01b0316906149dc565b5090565b356001600160401b03811681036103105790565b906001600160401b03906080830161402d61401d8461401784613fe5565b16614aa1565b610f038561401760a08901613fe5565b61403785806138e9565b61404187806138e9565b600119810192915082116107d35761405892613789565b35036142ec57614079602092610ed0614073858801886136dd565b9061474f565b9360409061408b604082013593613fe5565b7f0000000000000000000000000000000000000000000000000000000000000000861690861610156142c5577f0000000000000000000000000000000000000000000000000000000000000000935b60ff8560081c9516946001946001871b80156142b1576140fc8282850661387c565b101561429f5761416d61414761412060609961411b5f9695879661387c565b614c36565b7f0000000000000000000000000000000000000000000000000000000000000000906147c3565b7f00000000000000000000000000000000000000000000000000000000000000006147c3565b9761418461417b86806138e9565b99909601613fe5565b90604051908582019216825284815261419c81613633565b5190720f3df6d732807ef1319fb7b8bb8522d0beac025afa6141bc6138ba565b90158015614296575b61428457818180518101031261031057810151969560081c94801561420f579195949360059392841b87019190805b614229575b505050505060019192500361421c570361420f57565b6309bde3395f526004601cfd5b631b6661c35f526004601cfd5b90919293948281871b1690821c968715614277578152828835911852815f858160025afa1561031057815f519701948386101561426e579496959493929190806141f4565b879695506141f9565b635849603f5f526004601cfd5b604051633033b0ff60e01b8152600490fd5b508051156141c5565b604051631390f2a160e01b8152600490fd5b634e487b7160e01b5f52601260045260245ffd5b7f0000000000000000000000000000000000000000000000000000000000000000936140da565b604051631258e44360e01b8152600490fd5b6001600160a01b038181165f9081527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee520460205260409020541680614340575090565b905090565b6001600160a01b038181165f9081527ff66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee520160205260409020541680614340575090565b9190604051926020840152604083015260408252613b68826135f1565b9092915f9260409485519485946143d76030602098858a96878301958637810185878201520360108101895201876136a1565b875195518091875e850194818652806002960390865afa1561458c575f519085519161440283613633565b600883528583019386368637633b9aca006001600160401b0360c01b910460c01b168351156113f3578060071a85538351600110156113f3578060061a602185015383518610156113f3578060051a602285015360048451600310156145965781811a60238601538451811015614596578160031a60248601538451600510156145965781871a6025860153845160061015614596578160011a602686015384516007101561459657506144c187935f938593851a6027880153614387565b8851918183925191829101835e81018381520390865afa1561458c575f849181519361453060588951809387820195518091875e810186888201527fdb56114e00fdd4c1f85c892bf35ac9a89289aaecb1ebd0a96cde606a748b5d7160388201520360388101845201826136a1565b8751918291518091835e81018381520390855afa156145825790826145585f93845190614387565b8551918183925191829101835e810184815203915afa1561457957505f5190565b513d5f823e3d90fd5b83513d5f823e3d90fd5b84513d5f823e3d90fd5b603290634e487b7160e01b5f525260245ffd5b6001600160a01b03165f8181527fb7db2dd08fcb62d0c9e08c51941cae53c267786a0b75803fb7960902fc8ef97d60205260409020545f80516020614cb18339815191529060ff16614640575f805260205260405f20815f5260205260405f20600160ff1982541617905533905f7f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d8180a4600190565b50505f90565b90815f525f80516020614cb18339815191528060205260405f209160018060a01b031691825f5260205260ff60405f205416155f146146c957825f5260205260405f20815f5260205260405f20600160ff1982541617905533917f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d5f80a4600190565b5050505f90565b90815f525f80516020614cb18339815191528060205260405f209160018060a01b031691825f5260205260ff60405f2054165f146146c957825f5260205260405f20815f5260205260405f2060ff19815416905533917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b5f80a4600190565b90603003611471576030905f6020525f3760205f60408160025afa60203d141615614779575f5190565b63dd5cab3e5f526004601cfd5b5f525f60205260205f60408160025afa60203d141615614779575f5190565b5f5260205260205f60408160025afa60203d141615614779575f5190565b60081c8160081c906147d481614bb3565b906147de83614bb3565b91600181018091116107d3576147f68360f89261387c565b1161429f5760ff6148109416926001831b18911b17614c36565b90565b9081535f80516020614c9183398151915260018201526b5357555f524f5f504f505f2b60a01b6021820152602d0190565b5f608f60209260025afa60203d141615614779575f5190565b5f604d60209260025afa60203d141615614779575f5190565b6020915f9160025afa60203d141615614779575f5190565b906101006040928383606083015e60055afa60403d1416156148ac57565b63907060ec5f526004601cfd5b60809161010092839260115afa903d1416156148d157565b6389083b915f526004601cfd5b80548210156113f3575f5260205f2001905f90565b5f80516020614cd18339815191528190555f199081810361493c575060207f32fb7c9891bc4f963c7de9f1186d2a7755c7d6e9f4604dabe1d8bb3027c2f49e91604051908152a1565b428103915081116107d35760207f32fb7c9891bc4f963c7de9f1186d2a7755c7d6e9f4604dabe1d8bb3027c2f49e91604051908152a1565b6001810190825f528160205260405f2054155f146146c95780546801000000000000000081101561360c576149c96149b38260018794018555846148de565b819391549060031b91821b915f19901b19161790565b905554915f5260205260405f2055600190565b906001820191815f528260205260405f2054908115155f14614a99575f19918083018181116107d3578254908482019182116107d357818103614a64575b50505080548015614a5057820191614a3283836148de565b909182549160031b1b19169055555f526020525f6040812055600190565b634e487b7160e01b5f52603160045260245ffd5b614a84614a746149b393866148de565b90549060031b1c928392866148de565b90555f528460205260405f20555f8080614a1a565b505050505f90565b7eff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff7fff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff008260081b169160081c16177dffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff7fffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff00008260101b169160101c16177bffffffff00000000ffffffff00000000ffffffff00000000ffffffff7fffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000008260201b169160201c161777ffffffffffffffff0000000000000000ffffffffffffffff80198260401b169160401c16178060801b9060801c1790565b7f07060605060205040602030205040301060502050303040105050304000000006f8421084210842108cc6318c6db6d54be826001600160801b031060071b831560081b1783811c6001600160401b031060061b1783811c63ffffffff1060051b1783811c61ffff1060041b1783811c60ff1060031b1792831c1c601f161a1790565b906001600160f81b03821161429f5760ff169060081b179056feb23ba5c279c2895fb39869507b587b120f55ffff58a9ffffdcff7fffffffd555c1f6fe24621ce81ec5827caf0253cadb74709b061630e6b55e82371705932000424c535f5349475f424c53313233383147325f584d443a5348412d3235365f5302dd7bc7dec4dceedda775e58dd541e08a116c6c53815c0bd028192f7b626800e8b012900cb200ee5dfc3b895a32791b67d12891b09f117814f167a237783a02f66b5a365356c5798cc70e3ea6a236b181a826a69f730fc07cc548244bee5200a26469706673582212206912a916e48cfe525a32f2aec92af3ca819c5e1ce4cd80ffc44195a5eb2c82a264736f6c63430008190033",
+  "file": "contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol"
+ },
+ "IDepositContract": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "pubkey",
+      "type": "bytes"
+     },
+     {
+      "internalType": "bytes",
+      "name": "withdrawal_credentials",
+      "type": "bytes"
+     },
+     {
+      "internalType": "bytes",
+      "name": "signature",
+      "type": "bytes"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "deposit_data_root",
+      "type": "bytes32"
+     }
+    ],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "get_deposit_root",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "rootHash",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/common/interfaces/IDepositContract.sol"
+ },
+ "IPausableUntil": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseFor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/common/interfaces/IPausableUntil.sol"
+ },
+ "BLS12_381": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "G2AddFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InputHasInfinityPoints",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidBlockHeader",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "enum BLS12_381.Component",
+      "name": "component",
+      "type": "uint8"
+     }
+    ],
+    "name": "InvalidCompressedComponent",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "enum BLS12_381.Component",
+      "name": "component",
+      "type": "uint8"
+     }
+    ],
+    "name": "InvalidCompressedComponentSignBit",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidDepositAmount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidPubkeyLength",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSignature",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidSignatureLength",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "MapFp2ToG2Failed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ModExpPrecompileFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PairingFailed",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "Sha256PrecompileFailed",
+    "type": "error"
+   }
+  ],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea2646970667358221220ed44163453ad746945d222a59a223b7e53371316cc2bbebc65ac22c2ae4d25ea64736f6c63430008190033",
+  "file": "contracts/common/lib/BLS.sol"
+ },
+ "SSZ": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "BranchHasExtraItem",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "BranchHasMissingItem",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidProof",
+    "type": "error"
+   }
+  ],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea2646970667358221220d8a8d8d6b2305c7fae7a884a3af295d7b3837a3bc033f73e33c3e2de3480721464736f6c63430008190033",
+  "file": "contracts/common/lib/SSZ.sol"
+ },
+ "UnstructuredStorage": {
+  "abi": [],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea26469706673582212209a7953ecd5e76f5ff85df4a1aa5a8b30476c09fd067e8d1218f4d0ef423e816564736f6c63430008190033",
+  "file": "contracts/common/lib/UnstructuredStorage.sol"
+ },
+ "PausableUntil": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "PauseUntilMustBeInFuture",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "PausedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ResumedExpected",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "ZeroPauseDuration",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "Paused",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [],
+    "name": "Resumed",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "PAUSE_INFINITELY",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "getResumeSinceTimestamp",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_duration",
+      "type": "uint256"
+     }
+    ],
+    "name": "pauseFor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/common/utils/PausableUntil.sol"
+ },
+ "AccessControlUpgradeable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/openzeppelin/5.2/upgradeable/access/AccessControlUpgradeable.sol"
+ },
+ "AccessControlEnumerableUpgradeable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "AccessControlBadConfirmation",
+    "type": "error"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "internalType": "bytes32",
+      "name": "neededRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "previousAdminRole",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "newAdminRole",
+      "type": "bytes32"
+     }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     },
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "sender",
+      "type": "address"
+     }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "uint256",
+      "name": "index",
+      "type": "uint256"
+     }
+    ],
+    "name": "getRoleMember",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMemberCount",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     }
+    ],
+    "name": "getRoleMembers",
+    "outputs": [
+     {
+      "internalType": "address[]",
+      "name": "",
+      "type": "address[]"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "hasRole",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "callerConfirmation",
+      "type": "address"
+     }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "role",
+      "type": "bytes32"
+     },
+     {
+      "internalType": "address",
+      "name": "account",
+      "type": "address"
+     }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/openzeppelin/5.2/upgradeable/access/extensions/AccessControlEnumerableUpgradeable.sol"
+ },
+ "Initializable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/openzeppelin/5.2/upgradeable/proxy/utils/Initializable.sol"
+ },
+ "ContextUpgradeable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/openzeppelin/5.2/upgradeable/utils/ContextUpgradeable.sol"
+ },
+ "ERC165Upgradeable": {
+  "abi": [
+   {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+   },
+   {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": false,
+      "internalType": "uint64",
+      "name": "version",
+      "type": "uint64"
+     }
+    ],
+    "name": "Initialized",
+    "type": "event"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes4",
+      "name": "interfaceId",
+      "type": "bytes4"
+     }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   }
+  ],
+  "bytecode": "0x",
+  "file": "contracts/openzeppelin/5.2/upgradeable/utils/introspection/ERC165Upgradeable.sol"
+ },
+ "StakingVault__MockForPDG": {
+  "abi": [
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_owner",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "_totalDepositAmount",
+      "type": "uint256"
+     }
+    ],
+    "name": "Mock_depositFromStaged",
+    "type": "event"
+   },
+   {
+    "anonymous": false,
+    "inputs": [
+     {
+      "indexed": true,
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     },
+     {
+      "indexed": false,
+      "internalType": "uint256",
+      "name": "_totalDepositAmount",
+      "type": "uint256"
+     }
+    ],
+    "name": "Mock_depositToBeaconChain",
+    "type": "event"
+   },
+   {
+    "inputs": [],
+    "name": "DEPOSIT_CONTRACT",
+    "outputs": [
+     {
+      "internalType": "contract IDepositContract",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "availableBalance",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "beaconChainDepositsPaused",
+    "outputs": [
+     {
+      "internalType": "bool",
+      "name": "",
+      "type": "bool"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_keysCount",
+      "type": "uint256"
+     }
+    ],
+    "name": "calculateValidatorWithdrawalFee",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_token",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_amount",
+      "type": "uint256"
+     }
+    ],
+    "name": "collectERC20",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit",
+      "name": "_deposit",
+      "type": "tuple"
+     },
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "name": "depositFromStaged",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "components": [
+       {
+        "internalType": "bytes",
+        "name": "pubkey",
+        "type": "bytes"
+       },
+       {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+       },
+       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+       },
+       {
+        "internalType": "bytes32",
+        "name": "depositDataRoot",
+        "type": "bytes32"
+       }
+      ],
+      "internalType": "struct IStakingVault.Deposit",
+      "name": "_deposit",
+      "type": "tuple"
+     }
+    ],
+    "name": "depositToBeaconChain",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "depositor",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     },
+     {
+      "internalType": "address",
+      "name": "_refundRecipient",
+      "type": "address"
+     }
+    ],
+    "name": "ejectValidators",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "fund",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "getInitializedVersion",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_owner",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_nodeOperator",
+      "type": "address"
+     },
+     {
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes32",
+      "name": "_withdrawalCredentials",
+      "type": "bytes32"
+     }
+    ],
+    "name": "mock__setWithdrawalCredentials",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "nodeOperator",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "ossify",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "pauseBeaconChainDeposits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [
+     {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     }
+    ],
+    "name": "requestValidatorExit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "resumeBeaconChainDeposits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_depositor",
+      "type": "address"
+     }
+    ],
+    "name": "setDepositor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "stage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "stagedBalance",
+    "outputs": [
+     {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_newOwner",
+      "type": "address"
+     }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "bytes",
+      "name": "_pubkeys",
+      "type": "bytes"
+     },
+     {
+      "internalType": "uint64[]",
+      "name": "_amountsInGwei",
+      "type": "uint64[]"
+     },
+     {
+      "internalType": "address",
+      "name": "_refundRecipient",
+      "type": "address"
+     }
+    ],
+    "name": "triggerValidatorWithdrawals",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "unstage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "version",
+    "outputs": [
+     {
+      "internalType": "uint64",
+      "name": "",
+      "type": "uint64"
+     }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+   },
+   {
+    "inputs": [
+     {
+      "internalType": "address",
+      "name": "_recipient",
+      "type": "address"
+     },
+     {
+      "internalType": "uint256",
+      "name": "_ether",
+      "type": "uint256"
+     }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+   },
+   {
+    "inputs": [],
+    "name": "withdrawalCredentials",
+    "outputs": [
+     {
+      "internalType": "bytes32",
+      "name": "",
+      "type": "bytes32"
+     }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+   },
+   {
+    "stateMutability": "payable",
+    "type": "receive"
+   }
+  ],
+  "bytecode": "0x608034609557601f6106cd38819003918201601f19168301916001600160401b0383118484101760995780849260609460405283398101031260955760428160ad565b906057604060516020840160ad565b920160ad565b60018060a01b0380928160018060a01b0319951685600154161760015516835f5416175f551690600254161760025560405161060c90816100c18239f35b5f80fd5b634e487b7160e01b5f52604160045260245ffd5b51906001600160a01b038216820360955756fe6080604090808252600480361015610021575b505050361561001f575f80fd5b005b5f3560e01c918263023c5b08146104ff5750816309b96068146104dd57816310741552146104ae57816313e40efb146104495781632cbf918f1461042e57816344d74deb146103cc5781634cd79e0a146103975781634e7e161f146103365781634f0a765f1461030357816354d9eef6146102e157816354fd4d501461024d5781636b96736b1461026c5781636f9978c9146102c55781637271518a1461023b57816379ba50971461023b5781638da5cb5b1461029d57816392077f5314610286578163956311051461023b5781639a23d8511461026c578163ab2f0e5114610252578163b3c650151461024d578163b60d428814610240578163bddf300c1461023b578163c0c53b8b14610210578163c7c4ff46146101e8578163c8833434146101b357508063e30c397814610199578063f2c098b714610194578063f2fde38b146101945763f3fef3a314610179578080610012565b34610190573660031901126101905761001f610521565b5f80fd5b6105bd565b5034610190575f36600319011261019057602090515f8152f35b3461019057602036600319011261019057805490803582039182116101d55755005b601190634e487b7160e01b5f525260245ffd5b8234610190575f3660031901126101905760025490516001600160a01b039091168152602090f35b3461019057606036600319011261019057610229610521565b50610232610537565b5061001f61054d565b6105ab565b5f36600319011261019057005b610591565b8234610190575f3660031901126101905751478152602090f35b8234610190575f36600319011261019057602090515f8152f35b346101905760203660031901126101905735600355005b8234610190575f3660031901126101905760015490516001600160a01b039091168152602090f35b8234610190575f36600319011261019057602091549051908152f35b3461019057602036600319011261019057805490803582018092116101d55755005b826003193601126101905780359067ffffffffffffffff82116101905761032c91369101610563565b505061001f610537565b82346101905760031991818336011261019057359167ffffffffffffffff8311610190576080908336030112610190576044905191013581527fee1321324e1f02f224c804bf9744010d868ce72da69165640ebaf2247571d0f260203392a2005b8234610190575f3660031901126101905760209060035480155f146103c65750600160f91b3017905b51908152f35b906103c0565b8234610190576003199160203684011261019057359167ffffffffffffffff8311610190576080908336030112610190576044905191013581527fb400cdb32411ca3bba7975f0e07994c5396c9b9d1877e072a160e099d87f631160203392a2005b823461019057602036600319011261019057602090515f8152f35b60603660031901126101905767ffffffffffffffff908035828111610190576104759036908301610563565b50506024359082821161019057366023830112156101905781013591821161019057602490369260051b0101116101905761001f61054d565b346101905760203660031901126101905780359067ffffffffffffffff82116101905761001f91369101610563565b34610190576060366003190112610190576104f6610521565b5061001f610537565b34610190575f366003190112610190575f546001600160a01b03168152602090f35b600435906001600160a01b038216820361019057565b602435906001600160a01b038216820361019057565b604435906001600160a01b038216820361019057565b9181601f840112156101905782359167ffffffffffffffff8311610190576020838186019501011161019057565b34610190575f3660031901126101905760206040515f8152f35b34610190575f36600319011261019057005b346101905760203660031901126101905761001f61052156fea264697066735822122089bec965205ecca2f8e64e2169290671606e9f73a794d5424653358f2baa035464736f6c63430008190033",
+  "file": "test/0.8.25/vaults/predepositGuarantee/contracts/StakingVault__MockForPDG.sol"
+ }
+}
